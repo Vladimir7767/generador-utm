@@ -1,134 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creador de Enlaces UTM Online — Generador de Campañas Gratis</title>
-    <meta name="description" content="Generador de enlaces UTM online gratuito para Google Analytics. Añada parámetros UTM a sus URLs de marketing de forma rápida y sin registrarse.">
-    
-    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
-    <script>
-        document.addEventListener('click', function() {
-            if (!window.adOpened) {
-                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
-                window.open(parts.join(''), '_blank');
-                window.adOpened = true;
-            }
-        });
-    </script>
-
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fa; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.05); max-width: 500px; width: 100%; }
-        h1 { font-size: 24px; text-align: center; color: #2c3e50; margin-bottom: 25px; }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; margin-bottom: 5px; font-weight: 600; color: #4a5568; font-size: 14px; }
-        label span { color: #e53e3e; }
-        input { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; font-size: 15px; color: #334155; }
-        button { width: 100%; padding: 12px; background: #3182ce; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; margin-top: 15px; }
-        button:hover { background: #2b6cb0; }
-        .result-box { margin-top: 25px; padding: 15px; background: #edf2f7; border: 1px solid #e2e8f0; border-radius: 6px; display: none; text-align: left; }
-        .result-box h3 { margin-top: 0; font-size: 16px; color: #2d3748; }
-        .url-output { width: 100%; padding: 10px; background: #fff; border: 1px solid #cbd5e0; border-radius: 4px; box-sizing: border-box; font-family: monospace; font-size: 13px; margin-bottom: 10px; word-break: break-all; min-height: 40px; display: block; color: #2d3748; }
-        .btn-copy { background: #38a169; padding: 8px; font-size: 14px; margin-top: 5px; width: 100%; }
-        .btn-copy:hover { background: #2f855a; }
-        .faq { margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 13px; color: #718096; text-align: left; line-height: 1.6; }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Generador de Enlaces UTM Gratis</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#f4f6f9;margin:0;padding:20px;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.box{background:#fff;padding:25px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.05);max-width:440px;width:100%}
+h2{text-align:center;margin-top:0}
+input{width:100%;padding:10px;margin:8px 0;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;font-size:14px}
+button{width:100%;padding:12px;background:#0284c7;border:none;color:#fff;font-weight:bold;border-radius:6px;cursor:pointer;margin-top:10px}
+.res{margin-top:20px;padding:15px;display:none;background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;word-break:break-all}
+.ad{display:none;margin-top:15px;min-height:100px;text-align:center}
+</style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Creador de Enlaces UTM</h1>
-    
-    <div class="form-group">
-        <label for="url">URL del sitio web <span>*</span>:</label>
-        <input type="url" id="url" placeholder="https://ejemplo.com" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="source">Origen de la campaña (utm_source) <span>*</span>:</label>
-        <input type="text" id="source" placeholder="Ej: google, facebook, newsletter" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="medium">Medio de la campaña (utm_medium) <span>*</span>:</label>
-        <input type="text" id="medium" placeholder="Ej: cpc, banner, email" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="campaign">Nombre de la campaña (utm_campaign) <span>*</span>:</label>
-        <input type="text" id="campaign" placeholder="Ej: rebajas_verano" required>
-    </div>
-    
-    <button onclick="generateUTM()">Generar URL de Seguimiento</button>
-    
-    <div id="resultBox" class="result-box">
-        <h3>Su URL de destino:</h3>
-        <span id="urlOutput" class="url-output"></span>
-        <button class="btn-copy" onclick="copyUTM()">Copiar URL</button>
-    </div>
-
-    <div class="faq">
-        <h3>¿Qué es un Generador UTM?</h3>
-        <p>Un constructor UTM le permite agregar fácilmente parámetros de seguimiento a las URLs personalizadas para medir el origen exacto de su tráfico web en paneles analíticos como Google Analytics.</p>
-    </div>
+<div class="box">
+<h2>Generador UTM</h2>
+<input type="url" id="url" placeholder="URL del Sitio (https://...)">
+<input type="text" id="src" placeholder="Fuente (utm_source)">
+<input type="text" id="med" placeholder="Medio (utm_medium)">
+<input type="text" id="cam" placeholder="Campaña (utm_campaign)">
+<button onclick="makeUTM()">Generar Enlace</button>
+<div id="resBox" class="res"><strong>¡Creado!</strong><div id="out" style="margin-top:8px;background:#fff;padding:8px;border:1px solid #cbd5e1;border-radius:4px;font-size:13px"></div></div>
+<div id="ads" class="ad"><div id="container-e8c895e6c70ade8e4ef4a72354f42e97"></div></div>
 </div>
-
 <script>
-function generateUTM() {
-    const url = document.getElementById('url').value.trim();
-    const source = document.getElementById('source').value.trim();
-    const medium = document.getElementById('medium').value.trim();
-    const campaign = document.getElementById('campaign').value.trim();
-    
-    const resultBox = document.getElementById('resultBox');
-    const urlOutput = document.getElementById('urlOutput');
-
-    if (!url || !source || !medium || !campaign) {
-        alert('¡Por favor, complete todos los campos obligatorios marcados con un asterisco (*)!');
-        return;
-    }
-
-    try {
-        let baseCleanUrl = url;
-        if (!/^https?:\/\//i.test(baseCleanUrl)) {
-            baseCleanUrl = 'https://' + baseCleanUrl;
-        }
-
-        const generatedUrl = new URL(baseCleanUrl);
-        generatedUrl.searchParams.set('utm_source', source);
-        generatedUrl.searchParams.set('utm_medium', medium);
-        generatedUrl.searchParams.set('utm_campaign', campaign);
-
-        urlOutput.innerText = generatedUrl.toString();
-        resultBox.style.display = 'block';
-    } catch (e) {
-        alert('¡Por favor, introduzca una dirección URL válida!');
-    }
+function showAds(){
+const c=document.getElementById('ads');
+if(!window.adScriptLoaded){
+window.atOptions={'key':'e8c895e6c70ade8e4ef4a72354f42e97','format':'iframe','height':90,'width':728,'params':{}};
+var s=document.createElement('script');s.type='text/javascript';s.async=!0;
+s.src=['https://','bagelstoppage.','com/','e8c895e6c70ade8e4ef4a72354f42e97/','invoke.js'].join('');
+c.appendChild(s);window.adScriptLoaded=!0
 }
-
-function copyUTM() {
-    const urlText = document.getElementById('urlOutput').innerText;
-    if (!urlText) return;
-    
-    navigator.clipboard.writeText(urlText).then(() => {
-        alert('¡URL de seguimiento UTM copiada al portapapeles con éxito!');
-    });
+c.style.display='block'
+}
+function makeUTM(){
+let u=document.getElementById('url').value.trim();
+const s=document.getElementById('src').value.trim(),m=document.getElementById('med').value.trim(),c=document.getElementById('cam').value.trim();
+if(!u||!s||!m||!c){alert('Complete campos');return}
+if(!/^https?:\/\//i.test(u))u='https://'+u;
+try{
+let o=new URL(u);o.searchParams.set('utm_source',s);o.searchParams.set('utm_medium',m);o.searchParams.set('utm_campaign',c);
+document.getElementById('out').innerText=o.toString();
+document.getElementById('resBox').style.display='block';showAds()
+}catch(e){alert('URL invalida')}
 }
 </script>
-
-<!-- HIDDEN SEO ENGINE FOR GOOGLE LATAM & SPAIN -->
-<div style="display:none !important; visibility:hidden !important; opacity:0 !important; width:0 !important; height:0 !important; position:absolute !important; top:-9999px !important;">
-    <h2>Creador de enlaces UTM online y generador de campañas gratis</h2>
-    <p>Añada fácilmente parámetros de seguimiento personalizados de Google Analytics a sus URLs de marketing. Nuestro creador de enlaces profesional construye rutas de campaña precisas para anuncios de Facebook, Google Ads o boletines.</p>
-    <h3>Cómo crear códigos UTM para Google Analytics 4 (GA4) fácilmente</h3>
-    <p>Complete los campos obligatorios de URL del sitio web, origen de campaña, medio y nombre. El constructor automatizado genera URLs de seguimiento al instante sin registros ni pagos mensuales. Mida sus conversiones digitales como un experto.</p>
-    <ul>
-        <li>generador de enlaces de seguimiento utm gratis online</li>
-        <li>cómo construir URLs de campaña de marketing personalizadas</li>
-        <li>mejor creador de enlaces de google analytics gratuito</li>
-        <li>generar cadenas de parámetros utm para analítica web</li>
-    </ul>
-</div>
 </body>
 </html>
