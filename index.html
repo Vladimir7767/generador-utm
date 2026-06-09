@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ru">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Generador de Enlaces UTM Gratis</title>
+<title>Генератор UTM-меток онлайн бесплатно — Создать UTM ссылку</title>
+<meta name="description" content="Бесплатный онлайн-генератор UTM-меток. Сделайте размеченную ссылку для Яндекс.Директ, Гугл Рекламы, ВК и соцсетей мгновенно за 1 клик.">
 <style>
 body{font-family:'Segoe UI',sans-serif;background:#f4f6f9;margin:0;padding:20px;display:flex;justify-content:center;align-items:center;min-height:100vh}
 .box{background:#fff;padding:25px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.05);max-width:440px;width:100%}
-h2{text-align:center;margin-top:0}
-input{width:100%;padding:10px;margin:8px 0;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;font-size:14px}
+h2{text-align:center;margin-top:0;color:#1e293b}
+input{width:100%;padding:10px;margin:8px 0;border:1px solid #cbd5e1;border-radius:6px;box-sizing:border-box;font-size:14px;color:#334155}
 button{width:100%;padding:12px;background:#0284c7;border:none;color:#fff;font-weight:bold;border-radius:6px;cursor:pointer;margin-top:10px}
+button:hover{background:#0369a1}
 .res{margin-top:20px;padding:15px;display:none;background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;word-break:break-all}
 .ad{display:none;margin-top:15px;min-height:100px;text-align:center}
 </style>
 </head>
 <body>
 <div class="box">
-<h2>Generador UTM</h2>
-<input type="url" id="url" placeholder="URL del Sitio (https://...)">
-<input type="text" id="src" placeholder="Fuente (utm_source)">
-<input type="text" id="med" placeholder="Medio (utm_medium)">
-<input type="text" id="cam" placeholder="Campaña (utm_campaign)">
-<button onclick="makeUTM()">Generar Enlace</button>
-<div id="resBox" class="res"><strong>¡Creado!</strong><div id="out" style="margin-top:8px;background:#fff;padding:8px;border:1px solid #cbd5e1;border-radius:4px;font-size:13px"></div></div>
+<h2>Генератор UTM-меток</h2>
+<input type="url" id="url" placeholder="Адрес сайта (https://...)">
+<input type="text" id="src" placeholder="Источник кампании (utm_source: yandex, google)">
+<input type="text" id="med" placeholder="Тип трафика (utm_medium: cpc, cpm, email)">
+<input type="text" id="cam" placeholder="Название кампании (utm_campaign)">
+<button onclick="makeUTM()">Сгенерировать ссылку</button>
+<div id="resBox" class="res"><strong>Готовая ссылка:</strong><div id="out" style="margin-top:8px;background:#fff;padding:8px;border:1px solid #cbd5e1;border-radius:4px;font-size:13px;color:#0369a1;user-select:all"></div><button onclick="copyUTM()" style="background:#16a34a;margin-top:8px;padding:6px;font-size:13px">Копировать</button></div>
 <div id="ads" class="ad"><div id="container-e8c895e6c70ade8e4ef4a72354f42e97"></div></div>
 </div>
 <script>
@@ -30,22 +32,33 @@ const c=document.getElementById('ads');
 if(!window.adScriptLoaded){
 window.atOptions={'key':'e8c895e6c70ade8e4ef4a72354f42e97','format':'iframe','height':90,'width':728,'params':{}};
 var s=document.createElement('script');s.type='text/javascript';s.async=!0;
-s.src=['https://','bagelstoppage.','com/','e8c895e6c70ade8e4ef4a72354f42e97/','invoke.js'].join('');
-c.appendChild(s);window.adScriptLoaded=!0
-}
-c.style.display='block'
+s.src=['https://','bagelstoppage.','com/','e8c895e6c70ade8e4ef4a72354f42e97/','invoke.js'].join('');c.appendChild(s);window.adScriptLoaded=!0
+}c.style.display='block'
 }
 function makeUTM(){
 let u=document.getElementById('url').value.trim();
 const s=document.getElementById('src').value.trim(),m=document.getElementById('med').value.trim(),c=document.getElementById('cam').value.trim();
-if(!u||!s||!m||!c){alert('Complete campos');return}
+if(!u||!s||!m||!c){alert('Пожалуйста, заполните все обязательные поля');return}
 if(!/^https?:\/\//i.test(u))u='https://'+u;
 try{
 let o=new URL(u);o.searchParams.set('utm_source',s);o.searchParams.set('utm_medium',m);o.searchParams.set('utm_campaign',c);
 document.getElementById('out').innerText=o.toString();
 document.getElementById('resBox').style.display='block';showAds()
-}catch(e){alert('URL invalida')}
+}catch(e){alert('Введен некорректный URL-адрес')}
+}
+function copyUTM(){
+const t=document.getElementById('out').innerText;
+navigator.clipboard.writeText(t).then(()=>alert('Ссылка успешно скопирована!'))
 }
 </script>
+<div style="display:none!important;visibility:hidden!important;opacity:0!important;width:0!important;height:0!important;position:absolute!important;top:-9999px!important;">
+<h2>Как разметить ссылку utm метками онлайн — Конструктор ссылок для Директ и Google Ads</h2>
+<p>Создавайте правильные рекламные ссылки для веб-аналитики с помощью нашего бесплатного генератора меток. Безошибочный разбор параметров за один клик.</p>
+<ul>
+<li>генератор utm меток онлайн бесплатно</li>
+<li>компоновщик ссылок для яндекс директ</li>
+<li>создать ссылку с утм метками на русском</li>
+</ul>
+</div>
 </body>
 </html>
